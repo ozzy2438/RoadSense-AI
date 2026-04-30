@@ -4,8 +4,6 @@
 
 RoadSense AI is an agentic RAG platform for roadside assistance and insurance claim triage. It simulates an RACV-style operating environment: member requests arrive through chat, email, or call transcripts, and the system retrieves policy evidence, checks risk signals, calls operational tools, and streams an auditable recommendation to an operator.
 
-![RoadSense AI architecture](docs/assets/architecture.png)
-
 ## What This Shows
 
 - Event-driven Azure ingestion with Blob Storage, Event Grid, Durable Functions, Document Intelligence, Azure AI Search, and Cosmos DB.
@@ -23,7 +21,6 @@ roadsense-ai/
 ├── agents/              # Agent state, graph, router, retrieval, tools, guardrails
 ├── data/                # Dataset download, transforms, golden-set generation
 ├── deploy/              # Dockerfiles and Helm chart
-├── docs/                # Architecture assets and project notes
 ├── eval/                # RAGAS/promptfoo/LLM judge harness
 ├── frontend/            # Next.js 14 operator console
 ├── ingestion/           # Azure Functions and Durable Functions activities
@@ -33,8 +30,6 @@ roadsense-ai/
 ```
 
 ## Quick Start
-
-First time using GitHub Actions? Start with the [GitHub Actions Habit Guide](docs/github-actions-habit.md).
 
 ```bash
 cp .env.example .env
