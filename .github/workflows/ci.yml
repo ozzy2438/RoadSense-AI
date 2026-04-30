@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: ["**"]
 
+env:
+  PYTHONPATH: ${{ github.workspace }}
+
 jobs:
   python:
     runs-on: ubuntu-latest
