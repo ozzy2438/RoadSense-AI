@@ -17,16 +17,82 @@ RoadSense AI is an agentic RAG platform for roadside assistance and insurance cl
 
 ```text
 roadsense-ai/
-├── api/                 # FastAPI API and streaming routes
-├── agents/              # Agent state, graph, router, retrieval, tools, guardrails
-├── data/                # Dataset download, transforms, golden-set generation
-├── deploy/              # Dockerfiles and Helm chart
-├── eval/                # RAGAS/promptfoo/LLM judge harness
-├── frontend/            # Next.js 14 operator console
-├── ingestion/           # Azure Functions and Durable Functions activities
-├── infra/               # Azure Bicep infrastructure modules
-├── observability/       # Langfuse client wrappers and dashboard assets
-└── security/            # Presidio and prompt-injection utilities
+├── README.md
+├── pyproject.toml
+├── .env.example
+├── .gitignore
+├── docker-compose.yml
+├── infra/
+│   ├── main.bicep
+│   ├── modules/
+│   │   ├── storage.bicep
+│   │   ├── search.bicep
+│   │   ├── functions.bicep
+│   │   ├── cosmos.bicep
+│   │   ├── aks.bicep
+│   │   └── openai.bicep
+│   └── deploy.sh
+├── data/
+│   ├── download.py
+│   ├── transform.py
+│   ├── build_golden_set.py
+│   └── synthetic/
+│       └── policies/
+├── ingestion/
+│   ├── function_app.py
+│   ├── orchestrator.py
+│   ├── activities/
+│   │   ├── parse_pdf.py
+│   │   ├── chunk_embed.py
+│   │   ├── pii_mask.py
+│   │   └── index_search.py
+│   └── host.json
+├── agents/
+│   ├── graph.py
+│   ├── state.py
+│   ├── router.py
+│   ├── retrieval.py
+│   ├── policy_reasoning.py
+│   ├── action.py
+│   ├── guardrail.py
+│   └── tools/
+│       ├── weather.py
+│       ├── eta.py
+│       └── dispatch.py
+├── api/
+│   ├── main.py
+│   ├── routes/
+│   │   ├── triage.py
+│   │   └── health.py
+│   ├── auth.py
+│   └── middleware.py
+├── frontend/
+├── eval/
+│   ├── ragas_runner.py
+│   ├── promptfoo.yaml
+│   ├── llm_judge.py
+│   └── golden_set.jsonl
+├── observability/
+│   ├── langfuse_client.py
+│   └── dashboards/
+├── security/
+│   ├── presidio_pipeline.py
+│   ├── injection_detector.py
+│   └── attack_corpus.jsonl
+├── deploy/
+│   ├── Dockerfile.api
+│   ├── Dockerfile.functions
+│   ├── helm/
+│   │   └── roadsense/
+│   │       ├── Chart.yaml
+│   │       ├── values.yaml
+│   │       └── templates/
+│   └── k8s-secrets.example.yaml
+└── .github/
+    └── workflows/
+        ├── ci.yml
+        ├── deploy-staging.yml
+        └── deploy-prod.yml
 ```
 
 ## Quick Start
