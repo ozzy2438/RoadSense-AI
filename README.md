@@ -99,11 +99,9 @@ roadsense-ai/
 
 ```bash
 cp .env.example .env
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-docker compose up -d redis postgres
-uvicorn api.main:app --reload --port 8000
+uv sync --extra dev
+docker compose up -d
+uv run uvicorn api.main:app --reload --port 8000
 ```
 
 In a second terminal:
@@ -145,9 +143,9 @@ The project is designed around concrete production-style gates:
 Run local checks:
 
 ```bash
-python data/build_golden_set.py --output eval/golden_set.jsonl
-python eval/ragas_runner.py --input eval/golden_set.jsonl
-python eval/llm_judge.py --input eval/golden_set.jsonl
+uv run python data/build_golden_set.py --output eval/golden_set.jsonl
+uv run python eval/ragas_runner.py --input eval/golden_set.jsonl
+uv run python eval/llm_judge.py --input eval/golden_set.jsonl
 ```
 
 ## Azure Deployment Shape
