@@ -25,6 +25,7 @@ pnpm-debug.log*
 .terraform/
 *.tfstate*
 *.log
+*.pem
 data/raw/
 data/processed/
 data/synthetic/policies/*.pdf
