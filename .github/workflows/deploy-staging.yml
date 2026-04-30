@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build API image
         run: docker build -f deploy/Dockerfile.api -t roadsense-api:${{ github.sha }} .
       - name: Deploy placeholder
