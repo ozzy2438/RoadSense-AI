@@ -1,0 +1,14 @@
+image:
+  repository: roadsense.azurecr.io/roadsense-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 80
+
+env:
+  APP_ENV: staging
+  HUMAN_HANDOFF_THRESHOLD: "0.72"

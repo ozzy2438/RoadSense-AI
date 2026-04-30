@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/azure-functions/python:4-python3.11
+
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot
+ENV AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+COPY pyproject.toml README.md /home/site/wwwroot/
+COPY ingestion /home/site/wwwroot/ingestion
+COPY security /home/site/wwwroot/security
+
+RUN cd /home/site/wwwroot && pip install --no-cache-dir .

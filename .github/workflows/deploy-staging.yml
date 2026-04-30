@@ -1,0 +1,15 @@
+name: deploy-staging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f deploy/Dockerfile.api -t roadsense-api:${{ github.sha }} .
+      - name: Deploy placeholder
+        run: echo "Push to ACR and helm upgrade would run here."
