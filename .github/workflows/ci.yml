@@ -15,8 +15,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install --upgrade pip
-      - run: pip install -e ".[dev]"
+      - run: pip install ruff pytest
       - run: ruff check .
+      - run: python -m compileall agents api ingestion security observability data eval tests
       - run: pytest
       - run: python data/build_golden_set.py --output eval/golden_set.jsonl --target-size 20
       - run: python eval/ragas_runner.py --input eval/golden_set.jsonl
