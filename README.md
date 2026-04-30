@@ -1,5 +1,7 @@
 # RoadSense AI
 
+[![ci](https://github.com/ozzy2438/RoadSense-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/ozzy2438/RoadSense-AI/actions/workflows/ci.yml)
+
 RoadSense AI is an agentic RAG platform for roadside assistance and insurance claim triage. It simulates an RACV-style operating environment: member requests arrive through chat, email, or call transcripts, and the system retrieves policy evidence, checks risk signals, calls operational tools, and streams an auditable recommendation to an operator.
 
 ![RoadSense AI architecture](docs/assets/architecture.png)
@@ -31,6 +33,8 @@ roadsense-ai/
 ```
 
 ## Quick Start
+
+First time using GitHub Actions? Start with the [GitHub Actions Habit Guide](docs/github-actions-habit.md).
 
 ```bash
 cp .env.example .env
